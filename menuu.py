@@ -253,7 +253,10 @@ if chon == '3.1':
 elif chon == '2.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsfb.py').text)
 elif chon == '5.2':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/unfollow.py').text)
+        exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/unfollow.py').text)
+elif chon == '5.4':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regcloneauto.py').text)
+
 
 	exec(requests.get('accc').text)
 else:
