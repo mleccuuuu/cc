@@ -258,6 +258,9 @@ elif chon == '5.4':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regcloneauto.py').text)
 elif chon == '5.3':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regfbb.py').text)
+elif chon == '1.4':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glx.py').text)
+
 
 
 
