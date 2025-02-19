@@ -202,7 +202,7 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.1] Tool Auto Facebook[Vip-PC]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.2] Tool Auto Instagram[PC-Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.3] Tool Auto LinkedIn[PC-Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.4] Tool Auto X[PC-Mobile]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.5] Tool Auto Therads[PC-Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.5] Tool Auto Threads[PC-Mobile]')
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Trao Đổi Sub   \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
@@ -260,6 +260,9 @@ elif chon == '5.3':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regfbb.py').text)
 elif chon == '1.4':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glx.py').text)
+elif chon == '1.5':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/threads.py').text)
+
 
 
 
