@@ -223,25 +223,25 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool reg profile Facebook [PC+
 chon = str(input('\033[91mTOOL\033[93m➩ \033[96mNhập Số : \033[92m'))
 #golike
 if chon == '1':
-    exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/glttadb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glttadb.py').text)
 elif chon == '1.1':
     exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glfb.py').text)
 elif chon == '2':
-    exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/tdsttadb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsttadb.py').text)
 elif chon == '3':
-    exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/ttcfb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/ttcfb.py').text)
 elif chon == '4':
-	exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/nuoifb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/nuoifb.py').text)
 elif chon == '5':
-	exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/regprofile.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regprofile.py').text)
 elif chon == '1.2':
-	exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/gljg.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gljg.py').text)
 elif chon == '1.3':
-	exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/gllink.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gllink.py').text)
 if chon == '3.1':
-	exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/ttcfbunti.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/ttcfbunti.py').text)
 elif chon == '2.1':
-	exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/tdsfb.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsfb.py').text)
 
 	exec(requests.get('accc').text)
 else:
