@@ -120,7 +120,7 @@ def TWITTER():
         checkfile = os.path.isfile('AUTH'+str(account_id)+'.txt')
         if checkfile == False:
             banner()
-            AUTHURX = input(Fore.GREEN+'\033[1;97m[\033[1;91m🌸\033[1;97m] \033[1;36m  \033[1;32mNHẬP Authorization Golike : ')
+            AUTHURX = input(Fore.GREEN+'\033[1;97m[\033[1;91m🌸\033[1;97m] \033[1;36m  \033[1;32mNHẬP Authorization Twitter : ')
             createfile = open('AUTH'+str(account_id)+'.txt','w')
             createfile.write(AUTHURX)
             createfile.close()
@@ -842,6 +842,7 @@ if checkurl1['status']== 200 :
         print(Fore.GREEN+'\033[1;97m[\033[1;91m🌸\033[1;97m] \033[1;36m  \033[1;32mTổng Tiền : '+Fore.YELLOW+str(coin))
         print(Fore.RED+'_________________________________________________________')
         LIST()
+        print(Fore.RED+'Nhập 1 Để Dùng Account Hiện Tại')
         print(Fore.RED+'Nhập 2 Để Xóa Authorization Hiện Tại')
         choose = int(input(Fore.WHITE+'Nhập Lựa Chọn : '))
         if choose == 1:
