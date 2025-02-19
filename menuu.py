@@ -256,6 +256,9 @@ elif chon == '5.2':
         exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/unfollow.py').text)
 elif chon == '5.4':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regcloneauto.py').text)
+elif chon == '5.3':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/regfbb.py').text)
+
 
 
 	exec(requests.get('accc').text)
