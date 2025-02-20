@@ -19,7 +19,46 @@ from webdriver_manager.core.manager import DriverManager
 import socket
 from datetime import datetime
 import json
+import os
+import requests
+import zipfile
 
+# URL của file zip cần tải
+ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.98/win32/chromedriver-win32.zip"
+ZIP_NAME = "chromedriver-win32.zip"
+EXTRACT_FOLDER = "chromedriver-win32"
+
+def download_and_extract_chromedriver():
+    # Kiểm tra nếu thư mục đã tồn tại
+    if os.path.exists(EXTRACT_FOLDER):
+        print(f"Thư mục '{EXTRACT_FOLDER}' đã tồn tại, không cần tải lại.")
+        return
+
+    # Tải file zip về
+    print(f"Đang tải {ZIP_URL}...")
+    response = requests.get(ZIP_URL, stream=True)
+    
+    if response.status_code == 200:
+        with open(ZIP_NAME, "wb") as file:
+            for chunk in response.iter_content(1024):
+                file.write(chunk)
+        print(f"Tải xuống {ZIP_NAME} thành công.")
+    else:
+        print("Tải xuống thất bại!")
+        return
+
+    # Giải nén file
+    print(f"Đang giải nén {ZIP_NAME}...")
+    with zipfile.ZipFile(ZIP_NAME, "r") as zip_ref:
+        zip_ref.extractall(".")
+    print(f"Giải nén hoàn tất vào thư mục '{EXTRACT_FOLDER}'.")
+
+    # Xóa file ZIP sau khi giải nén
+    os.remove(ZIP_NAME)
+    print(f"Đã xóa file {ZIP_NAME}.")
+
+# Gọi hàm trước khi sử dụng chromedriver
+download_and_extract_chromedriver()
 #path
 chromedriver_path = os.path.dirname(os.path.abspath(__file__))+"/chromedriver-win32/chromedriver.exe"
 folder_path = os.path.dirname(os.path.abspath(__file__))
