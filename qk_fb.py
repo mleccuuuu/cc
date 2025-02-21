@@ -214,7 +214,7 @@ def print_notice():
 
 
 
-KEY_FILE = "keytool.txt"  # File lưu key
+KEY_FILE = "keytoolkd.txt"  # File lưu key
 TOKEN_LINK4M = "668bc1beab3a3470326ea5fd"  # API Token của bạn
 # Tạo hoặc đọc khóa mã hóa bằng base64
 secret_key = base64.urlsafe_b64encode(os.urandom(32))
