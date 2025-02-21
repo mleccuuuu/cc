@@ -200,16 +200,17 @@ print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;3
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1] Tool Auto TikTok ADB auto follow,tim...')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.1] Tool Tiktok Không Auto Click[Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.2] Tool Auto Facebook[Vip-PC]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.3] Tool Auto Instagram[PC-Mobile]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.4] Tool Auto LinkedIn[PC-Mobile]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.5] Tool Auto X[PC-Mobile]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.6] Tool Auto Threads[PC-Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.3] Tool Auto Instagram[PC cần giả lập-Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.4] Tool Auto LinkedIn[PC cần giả lập-Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.5] Tool Auto X[PC cần giả lập-Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.6] Tool Auto Threads[PC cần giả lập-Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.6] Tool Auto Facebook 100% auto Giải Captcha New Update Thử Nghiệm[PC]')
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Trao Đổi Sub   \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2] Tool TDS TikTok ADB auto follow,tim...')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.1] Tool Auto Facebook[PC+Mobile]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.2] Tool Auto Instagram[PC+Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.1] Tool Auto Facebook[PC+Mobile](die)')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.2] Tool Auto Instagram[PC+Mobile](die)')
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Tương Tác Chéo \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
@@ -219,7 +220,7 @@ print("\033[1;95m║  \033[1;32mTool NUÔI FACEBOOK VIP \033[1;95m║")
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [4] Tool Nuôi Facebook[PC]')
 print("\033[1;95m║  \033[1;32mTool Tiện ích \033[1;95m║")
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool reg profile Facebook [PC+Mobile]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool Chuyển Quản Trị Profile Facebook [PC+Mobile]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool Chuyển Quản Trị Profile Facebook [PC+Mobile](die)')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.2] Tool Unlock follow Tiktok Selenium [PC]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.3] Tool reg Facebook Novery[PC+Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.4] Tool reg Facebook Full100% Cần Proxy Xịn[PC+Mobile]')
@@ -268,7 +269,10 @@ elif chon == '2.2':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/igtds.py').text)
 elif chon == '1.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gltt.py').text)
+elif chon == '1.7':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/qk_fb.py').text)
 
+	
 
 
 
