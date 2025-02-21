@@ -237,7 +237,7 @@ def get_ip_address():
 
 # Lấy key mặc định từ GitHub
 def get_default_key_from_github():
-    url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/key.txt"
+    url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/keyy.txt"
     try:
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
