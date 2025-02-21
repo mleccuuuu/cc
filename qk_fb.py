@@ -131,7 +131,7 @@ try:
     print("Đã nhấn tải xuống!")
 
     # Chờ file tải xong (tùy theo tốc độ mạng)
-    time.sleep(10)
+    time.sleep(60)
 finally:
     driver.quit()
 
