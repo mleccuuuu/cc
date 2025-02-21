@@ -650,22 +650,24 @@ def check_captcha(driver):
     """
     while True:
         try:
-            # Tìm Captcha (có thể là reCAPTCHA hoặc một dạng khác)
-            captcha = WebDriverWait(driver, 2).until(
-                EC.presence_of_element_located((By.XPATH, "//iframe[contains(@src, 'recaptcha')]"))  # Xác định iframe của reCAPTCHA
-            )
-            if captcha:
+            # Kiểm tra nếu có iframe chứa Captcha (Google reCAPTCHA hoặc các Captcha khác)
+            captcha = driver.find_elements(By.TAG_NAME, "iframe")
+            if any("recaptcha" in frame.get_attribute("src") for frame in captcha):
                 print("\n🚨 [CẢNH BÁO] Captcha phát hiện! Vui lòng giải Captcha...")
-                
+
                 # Chờ người dùng giải Captcha xong
                 while True:
                     try:
-                        # Kiểm tra xem Captcha có còn tồn tại không
-                        driver.find_element(By.XPATH, "//iframe[contains(@src, 'recaptcha')]")
-                        time.sleep(2)  # Chờ thêm một chút trước khi kiểm tra lại
+                        # Kiểm tra lại xem Captcha còn tồn tại không
+                        captcha_check = driver.find_elements(By.TAG_NAME, "iframe")
+                        if not any("recaptcha" in frame.get_attribute("src") for frame in captcha_check):
+                            print("\n✅ Captcha đã được giải! Tiếp tục chạy tool...\n")
+                            return  # Thoát vòng lặp khi Captcha đã giải xong
                     except:
                         print("\n✅ Captcha đã được giải! Tiếp tục chạy tool...\n")
-                        return  # Thoát vòng lặp khi Captcha đã giải xong
+                        return
+                    time.sleep(2)  # Kiểm tra lại sau mỗi 2 giây
+
         except:
             break  # Không có Captcha thì thoát vòng lặp
 
@@ -698,6 +700,8 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
             wh_offer = driver.find_element(By.XPATH, '//img[@src="/assets/images/icons-new/chrome.svg"]')
             wh_offer.click()
 
+            check_captcha(driver)  # Kiểm tra Captcha trước khi chuyển tab
+
             try:
                 driver.switch_to.window(driver.window_handles[1])
                 link = driver.current_url
@@ -707,6 +711,8 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
 
                 time.sleep(random.uniform(1.5, 2.5))
                 driver2.refresh()
+
+                check_captcha(driver2)  # Kiểm tra Captcha trước khi thực hiện nhiệm vụ
 
                 def demgiay(wj_min, wj_max, jdl, current_time, job_thanh_cong, num_cash, tien):
                     wj = random.randint(wj_min, wj_max)
@@ -725,12 +731,14 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
                 else:
                     link = driver.current_url
                     if 'reel' in link:
-                        like_reel()
+                        likereel()
                         demgiay(wj_min, wj_max, i, current_time, job_thanh_cong, num_cash, tien)
                         time.sleep(1)
                     else:
                         like()
                         demgiay(wj_min, wj_max, i, current_time, job_thanh_cong, num_cash, tien)
+
+                check_captcha(driver)  # Kiểm tra Captcha trước khi hoàn thành job
 
                 time.sleep(2)
                 try:
@@ -751,6 +759,8 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
             
             except Exception as e:
                 print('Có lỗi xảy ra:', e)
+                
+            check_captcha(driver)  # Kiểm tra Captcha sau khi nhấn "Hoàn thành"
             
             try:
                 ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
