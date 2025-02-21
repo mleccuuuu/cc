@@ -28,6 +28,43 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+# URL của file zip cần tải
+ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.98/win32/chromedriver-win32.zip"
+ZIP_NAME = "chromedriver-win32.zip"
+EXTRACT_FOLDER = "chromedriver-win32"
+
+def download_and_extract_chromedriver():
+    # Kiểm tra nếu thư mục đã tồn tại
+    if os.path.exists(EXTRACT_FOLDER):
+        print(f"Thư mục '{EXTRACT_FOLDER}' đã tồn tại, không cần tải lại.")
+        return
+
+    # Tải file zip về
+    print(f"Đang tải {ZIP_URL}...")
+    response = requests.get(ZIP_URL, stream=True)
+    
+    if response.status_code == 200:
+        with open(ZIP_NAME, "wb") as file:
+            for chunk in response.iter_content(1024):
+                file.write(chunk)
+        print(f"Tải xuống {ZIP_NAME} thành công.")
+    else:
+        print("Tải xuống thất bại!")
+        return
+
+    # Giải nén file
+    print(f"Đang giải nén {ZIP_NAME}...")
+    with zipfile.ZipFile(ZIP_NAME, "r") as zip_ref:
+        zip_ref.extractall(".")
+    print(f"Giải nén hoàn tất vào thư mục '{EXTRACT_FOLDER}'.")
+
+    # Xóa file ZIP sau khi giải nén
+    os.remove(ZIP_NAME)
+    print(f"Đã xóa file {ZIP_NAME}.")
+
+# Gọi hàm trước khi sử dụng chromedriver
+download_and_extract_chromedriver()
+
 # 1. Tải file từ Mediafire bằng Selenium
 mediafire_url = "https://www.mediafire.com/file/w84diay6w8dp3je/rektCaptcha-reCaptcha-Solver.zip/file"
 download_path = os.path.abspath("downloads")  # Thư mục tải file
@@ -66,7 +103,7 @@ finally:
 # Tìm file vừa tải
 zip_file = None
 for file in os.listdir(download_path):
-    if file.endswith(".zip"):
+    if file.endswith("rektCaptcha-reCaptcha-Solver.zip"):
         zip_file = os.path.join(download_path, file)
         break
 
