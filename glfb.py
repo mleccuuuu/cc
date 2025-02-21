@@ -1,3 +1,13 @@
+# Màu sắc cho hiển thị
+xnhac = "\033[1;36m"
+do = "\033[1;31m"
+luc = "\033[1;32m"
+vang = "\033[1;33m"
+xduong = "\033[1;34m"
+hong = "\033[1;35m"
+trang = "\033[1;39m"
+end = '\033[0m'
+
 import os
 import random
 import string
@@ -18,9 +28,40 @@ from webdriver_manager.core.manager import DriverManager
 import socket
 from datetime import datetime
 import json
-import os
-import requests
 import zipfile
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+#get key
+import threading
+import base64
+import os
+import time
+import re
+import json
+import random
+import requests
+import socket
+import sys
+from time import sleep
+from datetime import datetime, timedelta
+from bs4 import BeautifulSoup
+from concurrent.futures import ThreadPoolExecutor
+# Kiểm tra và cài đặt thư viện cần thiết
+try:
+    from faker import Faker
+    from requests import session
+    from colorama import Fore, Style
+    import pystyle
+except ImportError:
+    os.system("pip install faker requests colorama bs4 pystyle")
+    os.system("pip3 install requests pysocks")
+    print('__Vui Lòng Chạy Lại Tool__')
+    sys.exit()
 
 # URL của file zip cần tải
 ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.98/win32/chromedriver-win32.zip"
@@ -98,133 +139,130 @@ def print_notice():
 
 
 
-#get key
-def generate_key(length=16, prefix="Quy_Kedo"):
-    # Tạo key ngẫu nhiên gồm chữ cái và số
-    characters = string.ascii_letters + string.digits  # Bao gồm cả chữ cái (hoa + thường) và chữ số
-    random_part = ''.join(random.choices(characters, k=length - len(prefix)))
-    
-    # Tạo key hoàn chỉnh với prefix
-    key = prefix + random_part
-    return key
-def tngay():
-    today = datetime.today()
-    return today.strftime("%d-%m-%Y")
-# Ví dụ tạo key với độ dài 16 ký tự, có tiền tố "Quy_Kedo"
+KEY_FILE = "keytool.txt"  # File lưu key
+TOKEN_LINK4M = "668bc1beab3a3470326ea5fd"  # API Token của bạn
+# Tạo hoặc đọc khóa mã hóa bằng base64
+secret_key = base64.urlsafe_b64encode(os.urandom(32))
 
+# Mã hóa và giải mã dữ liệu bằng base64
+def encrypt_data(data):
+    return base64.b64encode(data.encode()).decode()
 
+def decrypt_data(encrypted_data):
+    return base64.b64decode(encrypted_data.encode()).decode()
 
-def get_public_ip():
-    host = 'api.ipify.org'
-    port = 80
+# Lấy địa chỉ IP của thiết bị
+def get_ip_address():
+    try:
+        response = requests.get('https://api.ipify.org?format=json', timeout=5)
+        return response.json()['ip']
+    except requests.ConnectionError:
+        print("\033[1;91mKhông thể lấy địa chỉ IP! Kiểm tra kết nối mạng.")
+        sys.exit()
 
-    # Kết nối tới host và port
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    s.connect((host, port))
+# Lấy key mặc định từ GitHub
+def get_default_key_from_github():
+    url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/key.txt"
+    try:
+        response = requests.get(url, timeout=5)
+        if response.status_code == 200:
+            return response.text.strip()
+    except requests.ConnectionError:
+        pass
+    return None
 
-    # Gửi HTTP request
-    request = "GET / HTTP/1.1\r\nHost: api.ipify.org\r\nConnection: close\r\n\r\n"
-    s.send(request.encode())
-
-    # Nhận phản hồi và lấy IP công cộng
-    response = s.recv(4096).decode()
-
-    # Tìm IP công cộng trong phản hồi
-    public_ip = response.split("\r\n")[-1]
-
-    s.close()
-    return public_ip
-
-
-
-def tao_long_link(folder_path):
-    public_ip = get_public_ip()
-
-    # Dữ liệu cần mã hóa
-    key_real = generate_key(32,'Quy_Kedo_Siu_Vjp_').strip()
-    key_bam_r = key_real.encode()
-    bam_key_real = hashlib.sha256(key_bam_r).hexdigest()
-    # Mã hóa dữ liệu
-    
-    current_url = 'https://www.google.com/search?q='+key_real
-    tomorrow = tngay()
-    tomorrow = tomorrow.encode()
-    tomorrow = hashlib.sha256(tomorrow).hexdigest()
-    public_ip = public_ip.encode()
-    public_ip = hashlib.sha256(public_ip).hexdigest()
-
-    with open('key.key','w') as f:
-        
-        f.write(f"{bam_key_real} {tomorrow} {public_ip}")
-    print('đang lấy link key')
-    api_token = '668bc1beab3a3470326ea5fd'
-    api_url = f"https://link4m.co/api-shorten/v2?api={api_token}&url={current_url}"
-    response = requests.get(api_url)
-    if response.status_code == 200:
-        response_data = response.json()
-        if response_data.get('status')=='success':
-            shortened_url = response_data['shortenedUrl']
-
-            print('link lấy mã hôm nay của bạn là: ',shortened_url)
-    
-
-    for i in range(5,-1,-1):
-        key_u = input('nhập key bạn vừa lấy: ').strip()
-        key = key_u.encode()
-        bam_key_u = hashlib.sha256(key).hexdigest()
-        if bam_key_u == bam_key_real :
-            f = open('key_u.key','w')
-            print(key_u,file = f)
-            f.close()
-            break
-        else:
-            print(f'key sai, bạn còn {i} lần nhập')
-
-
-
-
-
-
-# Lấy IP công cộng
-public_ip = get_public_ip()
-os.system('cls' if os.name == 'nt' else 'clear')
-print_tool_info()
-print_notice()
-time.sleep(6)
-print(f"{Fore.GREEN}IP của bạn là:{Style.RESET_ALL} {Fore.BLUE}{public_ip}{Style.RESET_ALL}")
-
-
-if 'key_u.key' in os.listdir(folder_path):
-    with open('key.key') as f:
-        a = list(map(str, f.read().split()))
-        if len(a) == 0 :
-            tao_long_link(folder_path)
-        else:
-            b = a[0]
-            f = open('key_u.key')
-            s = f.read().strip()
-            s = s.encode()
-            s = hashlib.sha256(s).hexdigest()
-            if s == a[0]:
-                day = a[1]
-                today = datetime.today()
-                today = today.strftime("%d-%m-%Y")
-                today = today.encode()
-                today = hashlib.sha256(today).hexdigest()
-                if day == today:
-                    ip = a[2]
-                    public_ip = public_ip.encode()
-                    public_ip = hashlib.sha256(public_ip).hexdigest()
-                    if public_ip == ip:
-                        print_with_color('key chính xác, đang vào tool',"32")
-                    else:
-                        tao_long_link(folder_path)
-                else:
-                    tao_long_link(folder_path)
+# Rút gọn URL bằng Link4m
+def get_shortened_link_link4m(url):
+    """Rút gọn URL bằng Link4m"""
+    try:
+        api_url = f"https://link4m.co/api-shorten/v2?api={TOKEN_LINK4M}&url={url}"
+        response = requests.get(api_url, timeout=5)
+        if response.status_code == 200:
+            data = response.json()
+            if data.get("status") == "success":
+                return data.get("shortenedUrl")
             else:
-                tao_long_link(folder_path)
-else:
-    tao_long_link(folder_path)
+                print(f"\033[1;91mLỗi từ Link4m: {data.get('message')}")
+        else:
+            print("\033[1;91mLỗi kết nối đến Link4m!")
+    except requests.ConnectionError:
+        print("\033[1;91mLỗi khi kết nối đến Link4m! Kiểm tra mạng.")
+    return None
+
+# Tạo key từ địa chỉ IP
+def generate_key_and_url(ip_address):
+    ngay = int(datetime.now().day)
+    key1 = str(ngay * 27 + 27)
+    ip_numbers = ''.join(filter(str.isdigit, ip_address))
+    key = f'QuyKeDo{key1}{ip_numbers}'
+    expiration_date = datetime.now().replace(hour=23, minute=59, second=0, microsecond=0)
+    url = f'https://mlevip.blogspot.com/2025/02/mlevip.html?ma={key}'
+    return url, key, expiration_date
+
+# Lưu key vào file `keytool.txt`
+def save_key(key, expiration_date):
+    data = {"key": key, "expiration_date": expiration_date.isoformat()}
+    encrypted_data = encrypt_data(json.dumps(data))
+    with open(KEY_FILE, "w") as file:
+        file.write(encrypted_data)
+
+# Đọc key đã lưu trong file và kiểm tra hạn sử dụng
+def load_saved_key():
+    if not os.path.exists(KEY_FILE):
+        return None
+
+    try:
+        with open(KEY_FILE, "r") as file:
+            encrypted_data = file.read()
+            data = json.loads(decrypt_data(encrypted_data))
+
+            expiration_date = datetime.fromisoformat(data["expiration_date"])
+            if expiration_date > datetime.now():
+                return data["key"]  # Key còn hạn, trả về key
+            else:
+                print("\033[1;91mKey đã hết hạn! Vui lòng nhập key mới.")
+                return None
+    except (json.JSONDecodeError, KeyError):
+        return None
+
+# Chương trình chính để lấy key
+def main():
+    ip_address = get_ip_address()
+    saved_key = load_saved_key()
+
+    if saved_key:
+        print("\033[1;92mKey hợp lệ! Mời bạn dùng tool.")
+        time.sleep(2)
+        return
+
+    default_key = get_default_key_from_github()
+    url, key_link4m, expiration_date = generate_key_and_url(ip_address)
+
+    with ThreadPoolExecutor(max_workers=2) as executor:
+        link4m_future = executor.submit(get_shortened_link_link4m, url)
+        link_key_link4m = link4m_future.result()
+
+        print("\033[1;97m[\033[1;91m<>\033[1;97m] \033[1;32mNhập Key Để Dùng Tool")
+
+        if link_key_link4m:
+            print(f"\033[1;35mVượt link để lấy key Link4m: \033[1;36m{link_key_link4m}")
+
+        while True:
+            try:
+                keynhap = input("\033[1;33mNhập Key: \033[1;32m").strip()
+                if keynhap in [key_link4m, default_key]:
+                    print("\033[1;92mKey đúng! Mời bạn dùng tool.")
+                    save_key(keynhap, expiration_date)
+                    time.sleep(2)
+                    return
+                else:
+                    print("\033[1;91mKey sai! Vui lòng nhập lại.")
+            except KeyboardInterrupt:
+                print("\n\033[1;91mThoát tool!")
+                sys.exit()
+
+if __name__ == '__main__':
+    main()
 
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
