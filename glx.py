@@ -255,7 +255,7 @@ def TWITTER():
                                     try:
                                         checkskipjob = response.json()
                                     except json.JSONDecodeError:
-                                        print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
                                         checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                     if checkskipjob['status'] == 200:
                                         message = checkskipjob['message']
@@ -364,7 +364,14 @@ def TWITTER():
                                     'data': 'null',
                                     'type': type,
                                     }
-                                    checkskipjob = ses.post(skipjob,params=PARAMS).json()
+                                    response = ses.post(skipjob, params=PARAMS)
+
+                                    # Kiểm tra nếu response có dữ liệu JSON hợp lệ
+                                    try:
+                                        checkskipjob = response.json()
+                                    except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                        checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                     if checkskipjob['status'] == 200:
                                         message = checkskipjob['message']
                                         print(Fore.RED+str(message))
@@ -499,7 +506,14 @@ def TWITTER():
                                     'data': 'null',
                                     'type': type,
                                     }
-                                    checkskipjob = ses.post(skipjob,params=PARAMS).json()
+                                    response = ses.post(skipjob, params=PARAMS)
+
+                                    # Kiểm tra nếu response có dữ liệu JSON hợp lệ
+                                    try:
+                                        checkskipjob = response.json()
+                                    except json.JSONDecodeError:
+                                        #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
+                                        checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
                                     if checkskipjob['status'] == 200:
                                         message = checkskipjob['message']
                                         print(Fore.RED+str(message))
