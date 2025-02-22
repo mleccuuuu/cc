@@ -257,8 +257,8 @@ def TWITTER():
                                     except json.JSONDecodeError:
                                         #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
                                         checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
-                                    if checkskipjob['status'] == 200:
-                                        message = checkskipjob['message']
+                                    if checkskipjob.get('status') == 200:
+                                        message = checkskipjob.get('message', 'Không có thông báo từ server.')
                                         print(Fore.RED+str(message))
                                         PARAMSr = {
                                         'ads_id' : ads_id,
@@ -372,8 +372,8 @@ def TWITTER():
                                     except json.JSONDecodeError:
                                         #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
                                         checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
-                                    if checkskipjob['status'] == 200:
-                                        message = checkskipjob['message']
+                                    if checkskipjob.get('status') == 200:
+                                        message = checkskipjob.get('message', 'Không có thông báo từ server.')
                                         print(Fore.RED+str(message))
                                         PARAMSr = {
                                         'ads_id' : ads_id,
@@ -514,8 +514,8 @@ def TWITTER():
                                     except json.JSONDecodeError:
                                         #print(f"Lỗi JSON: Server trả về dữ liệu không hợp lệ hoặc rỗng. Response:\n{response.text}")
                                         checkskipjob = {}  # Gán giá trị mặc định để tránh lỗi
-                                    if checkskipjob['status'] == 200:
-                                        message = checkskipjob['message']
+                                    if checkskipjob.get('status') == 200:
+                                        message = checkskipjob.get('message', 'Không có thông báo từ server.')
                                         print(Fore.RED+str(message))
                                         PARAMSr = {
                                         'ads_id' : ads_id,
