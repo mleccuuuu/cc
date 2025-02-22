@@ -644,32 +644,6 @@ def path_job():
     reacc = input('đổi sang acc bạn thực hiện nhiệm vụ và enter: ')
 
 
-def check_captcha(driver):
-    """
-    Kiểm tra xem có Captcha hay không, nếu có thì dừng lại đợi người dùng giải xong.
-    """
-    while True:
-        try:
-            # Kiểm tra nếu có iframe chứa Captcha (Google reCAPTCHA hoặc các Captcha khác)
-            captcha = driver.find_elements(By.TAG_NAME, "iframe")
-            if any("recaptcha" in frame.get_attribute("src") for frame in captcha):
-                print("\n🚨 [CẢNH BÁO] Captcha phát hiện! Vui lòng giải Captcha...")
-
-                # Chờ người dùng giải Captcha xong
-                while True:
-                    try:
-                        # Kiểm tra lại xem Captcha còn tồn tại không
-                        captcha_check = driver.find_elements(By.TAG_NAME, "iframe")
-                        if not any("recaptcha" in frame.get_attribute("src") for frame in captcha_check):
-                            print("\n✅ Captcha đã được giải! Tiếp tục chạy tool...\n")
-                            return  # Thoát vòng lặp khi Captcha đã giải xong
-                    except:
-                        print("\n✅ Captcha đã được giải! Tiếp tục chạy tool...\n")
-                        return
-                    time.sleep(2)  # Kiểm tra lại sau mỗi 2 giây
-
-        except:
-            break  # Không có Captcha thì thoát vòng lặp
 
 def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
     """
