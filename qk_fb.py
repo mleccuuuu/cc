@@ -100,73 +100,79 @@ def download_and_extract_chromedriver():
 # Gọi hàm trước khi sử dụng chromedriver
 download_and_extract_chromedriver()
 
-# 1. Tải file từ Mediafire bằng Selenium
-mediafire_url = "https://www.mediafire.com/file/w84diay6w8dp3je/rektCaptcha-reCaptcha-Solver.zip/file"
+
+# Định nghĩa đường dẫn
 download_path = os.path.abspath("downloads")  # Thư mục tải file
-if not os.path.exists(download_path):
-    os.makedirs(download_path)
+extract_path = os.path.abspath("rektCaptcha-reCaptcha-Solver")  # Tên thư mục gốc sau khi giải nén
 
-# Cấu hình Chrome để tải file tự động
-chrome_options = Options()
-chrome_options.add_experimental_option("prefs", {
-    "download.default_directory": download_path,
-    "download.prompt_for_download": False,
-    "safebrowsing.enabled": True
-})
+# Kiểm tra nếu thư mục đã tồn tại, bỏ qua việc tải lại
+if os.path.exists(extract_path):
+    print("Extension đã được tải và giải nén trước đó. Bỏ qua bước tải xuống.")
+else:
+    # Nếu chưa tồn tại, thực hiện tải xuống
+    if not os.path.exists(download_path):
+        os.makedirs(download_path)
 
-chromedriver_path = os.path.dirname(os.path.abspath(__file__))+"/chromedriver-win32/chromedriver.exe"
-folder_path = os.path.dirname(os.path.abspath(__file__))
-service = Service(chromedriver_path)
-driver = webdriver.Chrome(service=service, options=chrome_options)
+    # Cấu hình Chrome để tải file tự động
+    chrome_options = Options()
+    chrome_options.add_experimental_option("prefs", {
+        "download.default_directory": download_path,
+        "download.prompt_for_download": False,
+        "safebrowsing.enabled": True
+    })
 
-print("Mở Mediafire để tải file...")
-driver.get(mediafire_url)
+    chromedriver_path = os.path.dirname(os.path.abspath(__file__)) + "/chromedriver-win32/chromedriver.exe"
+    service = Service(chromedriver_path)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
 
-try:
-    # Chờ nút tải xuống xuất hiện và nhấn vào
-    download_button = WebDriverWait(driver, 10).until(
-        EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'download')]"))
-    )
-    download_button.click()
-    print("Đã nhấn tải xuống!")
+    mediafire_url = "LINK_MEDIAFIRE_CUA_BAN"  # Thay bằng URL thực tế
+    print("Mở Mediafire để tải file...")
+    driver.get(mediafire_url)
 
-    # Chờ file tải xong (tùy theo tốc độ mạng)
-    time.sleep(60)
-finally:
-    driver.quit()
+    try:
+        # Chờ nút tải xuống xuất hiện và nhấn vào
+        download_button = WebDriverWait(driver, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'download')]"))
+        )
+        download_button.click()
+        print("Đã nhấn tải xuống!")
 
-# Tìm file vừa tải
-zip_file = None
-for file in os.listdir(download_path):
-    if file.endswith("rektCaptcha-reCaptcha-Solver.zip"):
-        zip_file = os.path.join(download_path, file)
-        break
+        # Chờ file tải xong (tùy theo tốc độ mạng)
+        time.sleep(60)
+    finally:
+        driver.quit()
 
-if not zip_file:
-    print("Lỗi: Không tìm thấy file ZIP đã tải!")
-    exit()
+    # Tìm file vừa tải
+    zip_file = None
+    for file in os.listdir(download_path):
+        if file.endswith("rektCaptcha-reCaptcha-Solver.zip"):
+            zip_file = os.path.join(download_path, file)
+            break
 
-print("Tải xuống thành công:", zip_file)
+    if not zip_file:
+        print("Lỗi: Không tìm thấy file ZIP đã tải!")
+        exit()
 
-# 2. Giải nén file ZIP
-extract_path = "rektCaptcha-reCaptcha-Solver_folder"
-if not os.path.exists(extract_path):
-    os.makedirs(extract_path)
+    print("Tải xuống thành công:", zip_file)
 
-with zipfile.ZipFile(zip_file, "r") as zip_ref:
-    zip_ref.extractall(extract_path)
-os.remove(zip_file)  # Xóa file ZIP sau khi giải nén
-print("Giải nén thành công!")
+    # Giải nén file ZIP
+    os.makedirs(extract_path, exist_ok=True)
+
+    with zipfile.ZipFile(zip_file, "r") as zip_ref:
+        zip_ref.extractall(os.path.abspath("."))  # Giải nén vào thư mục hiện tại
+    
+    os.remove(zip_file)  # Xóa file ZIP sau khi giải nén
+    print("Giải nén thành công!")
 
 # 3. Mở Chrome với extension đã tải
 chrome_options = Options()
-chrome_options.add_argument(f"--load-extension={os.path.abspath(extract_path)}")
+chrome_options.add_argument(f"--load-extension={extract_path}")
 
-#print("Đang mở Chrome với extension...")
+print("Đang mở Chrome với extension...")
 service = Service(chromedriver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-# Mở Google để kiểm tra
+
 
 #path
 chromedriver_path = os.path.dirname(os.path.abspath(__file__))+"/chromedriver-win32/chromedriver.exe"
