@@ -165,16 +165,6 @@ else:
     os.remove(zip_file)  # Xóa file ZIP sau khi giải nén
     print("Giải nén thành công!")
 
-# 3. Mở Chrome với extension đã tải
-chrome_options = Options()
-chrome_options.add_argument(f"--load-extension={extract_path}")
-
-print("Đang mở Chrome với extension...")
-service = Service(chromedriver_path)
-driver = webdriver.Chrome(service=service, options=chrome_options)
-
-
-
 #path
 
 
