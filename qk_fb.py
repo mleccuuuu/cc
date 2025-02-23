@@ -125,7 +125,7 @@ else:
     service = Service(chromedriver_path)
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
-    mediafire_url = "LINK_MEDIAFIRE_CUA_BAN"  # Thay bằng URL thực tế
+    mediafire_url = "https://www.mediafire.com/file/w84diay6w8dp3je/rektCaptcha-reCaptcha-Solver.zip/file"  # Thay bằng URL thực tế
     print("Mở Mediafire để tải file...")
     driver.get(mediafire_url)
 
