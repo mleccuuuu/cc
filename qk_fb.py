@@ -67,6 +67,8 @@ except ImportError:
 ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.98/win32/chromedriver-win32.zip"
 ZIP_NAME = "chromedriver-win32.zip"
 EXTRACT_FOLDER = "chromedriver-win32"
+chromedriver_path = os.path.dirname(os.path.abspath(__file__))+"/chromedriver-win32/chromedriver.exe"
+folder_path = os.path.dirname(os.path.abspath(__file__))
 
 def download_and_extract_chromedriver():
     # Kiểm tra nếu thư mục đã tồn tại
@@ -121,7 +123,6 @@ else:
         "safebrowsing.enabled": True
     })
 
-    chromedriver_path = os.path.dirname(os.path.abspath(__file__)) + "/chromedriver-win32/chromedriver.exe"
     service = Service(chromedriver_path)
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
@@ -175,8 +176,6 @@ driver = webdriver.Chrome(service=service, options=chrome_options)
 
 
 #path
-chromedriver_path = os.path.dirname(os.path.abspath(__file__))+"/chromedriver-win32/chromedriver.exe"
-folder_path = os.path.dirname(os.path.abspath(__file__))
 
 
 #slow send
