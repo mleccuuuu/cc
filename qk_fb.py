@@ -659,7 +659,7 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
     for i in range(us):
         try:
             # Kiểm tra Captcha trước khi làm nhiệm vụ
-            check_captcha(driver)
+            
 
             current_time = time.strftime("%Hh- %Mm - %Ss")
             job_offer = driver.find_element(By.XPATH, '//i[@class="material-icons font-light font-18"]')
@@ -674,7 +674,7 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
             wh_offer = driver.find_element(By.XPATH, '//img[@src="/assets/images/icons-new/chrome.svg"]')
             wh_offer.click()
 
-            check_captcha(driver)  # Kiểm tra Captcha trước khi chuyển tab
+            # Kiểm tra Captcha trước khi chuyển tab
 
             try:
                 driver.switch_to.window(driver.window_handles[1])
@@ -686,7 +686,7 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
                 time.sleep(random.uniform(1.5, 2.5))
                 driver2.refresh()
 
-                check_captcha(driver2)  # Kiểm tra Captcha trước khi thực hiện nhiệm vụ
+                # Kiểm tra Captcha trước khi thực hiện nhiệm vụ
 
                 def demgiay(wj_min, wj_max, jdl, current_time, job_thanh_cong, num_cash, tien):
                     wj = random.randint(wj_min, wj_max)
@@ -712,7 +712,7 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
                         like()
                         demgiay(wj_min, wj_max, i, current_time, job_thanh_cong, num_cash, tien)
 
-                check_captcha(driver)  # Kiểm tra Captcha trước khi hoàn thành job
+                  # Kiểm tra Captcha trước khi hoàn thành job
 
                 time.sleep(2)
                 try:
@@ -734,7 +734,7 @@ def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
             except Exception as e:
                 print('Có lỗi xảy ra:', e)
                 
-            check_captcha(driver)  # Kiểm tra Captcha sau khi nhấn "Hoàn thành"
+            # Kiểm tra Captcha sau khi nhấn "Hoàn thành"
             
             try:
                 ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
