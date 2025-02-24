@@ -7,7 +7,7 @@ import time, json, os, pytz
 import requests
 
 # URL tệp JSON trên GitHub (dùng link raw)
-url = "https://raw.githubusercontent.com/user/repository/branch/path/to/file.json"
+url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/config.json"
 
 # Tải nội dung
 response = requests.get(url)
