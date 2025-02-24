@@ -218,16 +218,15 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [3] Tool TTC Facebook[Mobile+PC]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [3.1] Tool TTC Facebook[PC Untiblock,Vip]')
 print("\033[1;95m║  \033[1;32mTool NUÔI FACEBOOK VIP \033[1;95m║")
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [4] Tool Nuôi Facebook[PC]')
-print("\033[1;95m║  \033[1;32mTool Airdrop Auto\033[1;95m║")
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6] Tool  Midas noproxy[All thiết bị]')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6.1] Tool Midas proxy[All thiết bị]')
 print("\033[1;95m║  \033[1;32mTool Tiện ích \033[1;95m║")
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool reg profile Facebook [PC+Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool Chuyển Quản Trị Profile Facebook [PC+Mobile](die)')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.2] Tool Unlock follow Tiktok Selenium [PC]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.3] Tool reg Facebook Novery[PC+Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.4] Tool reg Facebook Full100% Cần Proxy Xịn[PC+Mobile]')
-
+print("\033[1;95m║  \033[1;32mTool Airdrop Auto\033[1;95m║")
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6] Tool  Midas noproxy[All thiết bị]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6.1] Tool Midas proxy[All thiết bị]')
 
 
 
