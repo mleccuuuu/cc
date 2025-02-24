@@ -8,6 +8,7 @@ hong = "\033[1;35m"
 trang = "\033[1;39m"
 end = '\033[0m'
 
+
 import os
 import random
 import string
@@ -62,8 +63,6 @@ except ImportError:
     os.system("pip3 install requests pysocks")
     print('__Vui Lòng Chạy Lại Tool__')
     sys.exit()
-
-# URL của file zip cần tải
 ZIP_URL = "https://storage.googleapis.com/chrome-for-testing-public/133.0.6943.98/win32/chromedriver-win32.zip"
 ZIP_NAME = "chromedriver-win32.zip"
 EXTRACT_FOLDER = "chromedriver-win32"
@@ -105,6 +104,7 @@ chromedriver_path = os.path.dirname(os.path.abspath(__file__))+"/chromedriver-wi
 folder_path = os.path.dirname(os.path.abspath(__file__))
 
 
+
 #slow send
 def slow_typing_with_actionchains(driver, element, text):
     delay = random.uniform(0.1, 0.5)
@@ -116,7 +116,7 @@ def slow_typing_with_actionchains(driver, element, text):
 def print_tool_info():
     print(Fore.CYAN + Back.BLACK + "╔═══════════════════════════════════════════════╗")
     print(Fore.YELLOW + Style.BRIGHT + "║       THÔNG TIN CHỦ TOOL                      ║")
-    print(Fore.GREEN + "║ Tên: " + Fore.YELLOW + "Quy Kedo" + "                                 ║")
+    print(Fore.GREEN + "║ Tên: " + Fore.YELLOW + "Quy " + "x Mạnh                               ║")
     print(Fore.RED + "║ Group Zalo: " + Fore.YELLOW + "https://zalo.me/g/uaahwq871" + "       ║")
     print(Fore.CYAN + Back.BLACK + "╚═══════════════════════════════════════════════╝")
 
@@ -139,7 +139,14 @@ def print_notice():
 
 
 
-KEY_FILE = "keytool.txt"  # File lưu key
+
+
+
+
+
+
+
+KEY_FILE = "keytoolkd.txt"  # File lưu key
 TOKEN_LINK4M = "668bc1beab3a3470326ea5fd"  # API Token của bạn
 # Tạo hoặc đọc khóa mã hóa bằng base64
 secret_key = base64.urlsafe_b64encode(os.urandom(32))
@@ -162,7 +169,7 @@ def get_ip_address():
 
 # Lấy key mặc định từ GitHub
 def get_default_key_from_github():
-    url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/key.txt"
+    url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/keyy.txt"
     try:
         response = requests.get(url, timeout=5)
         if response.status_code == 200:
@@ -261,8 +268,9 @@ def main():
                 print("\n\033[1;91mThoát tool!")
                 sys.exit()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
+
 
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
@@ -431,69 +439,53 @@ def bao_loi():
 
 
 def like():
-    time.sleep(4)
+    time.sleep(2)
+
     def lk():
         try:
-            like = driver2.find_elements(By.XPATH , '//span[@data-ad-rendering-role="thích_button"]')
-            like[-1].click()
-            return True
-        except Exception as e:
+            # Kiểm tra nếu có nhiều nút "Thích", chọn cái cuối cùng
+            like_buttons = WebDriverWait(driver2, 0.05).until(
+                EC.presence_of_all_elements_located((By.XPATH, '//span[@data-ad-rendering-role="thích_button"]'))
+            )
+            if like_buttons:
+                driver2.execute_script("arguments[0].click();", like_buttons[0])
+                return True
+        except:
             pass
-        try:
-            # Tìm phần tử có text "Thích" hoặc "Like"
-            like_button = driver2.find_element(By.XPATH, '//*[contains(text(), "Thích")]')
-            like_button.click()
-            return True
+        
+        # Các phương pháp khác để tìm nút "Thích"
+        like_xpaths = [
+            '//*[contains(text(), "Thích")]',  # Tiếng Việt
+            '//*[contains(text(), "Like")]',  # Tiếng Anh
+            '//*[@aria-label="Thích"]',
+            '//*[@aria-label="Like"]',
+            '//div[contains(@class, "x1i10hfl")]'  # Một class phổ biến trên Facebook
+        ]
 
-        except Exception:
-            pass
-        try:
-            
-            # Tìm phần tử có aria-label="Thích" hoặc aria-label="Like"
-            like = driver2.find_element(By.XPATH, '//*[@aria-label="Thích"]')
-            like.click()
-            return True
-        except Exception:
-            pass
-        try:
-            like = driver2.find_element(By.XPATH, '//div[@class="x1i10hfl x1qjc9v5 xjbqb8w xjqpnuy xa49m3k xqeqjp1 x2hbi6w x13fuv20 xu3j5b3 x1q0q8m5 x26u7qi x972fbf xcfux6l x1qhh985 xm0m39n x9f619 x1ypdohk xdl72j9 x2lah0s xe8uvvx xdj266r x11i5rnm xat24cr x1mh8g0r x2lwn1j xeuugli xexx8yu x4uap5 x18d9i69 xkhd6sd x1n2onr6 x16tdsg8 x1hl2dhg xggy1nq x1ja2u2z x1t137rt x1o1ewxj x3x9cwd x1e5q0jg x13rtm0m x1q0g3np x87ps6o x1lku1pv x78zum5 x1a2a7pz"]')
-            like.click()
-            return True
-        except Exception as e:
-            pass
-        
-        try:
-            like = driver2.find_element(By.XPATH, '//*[contains(text(), "Like")]')
-            like.click()
-            return True
-        except Exception:
-            pass
-        
-        try:
-            like = driver2.find_element(By.XPATH, '//*[@aria-label="Like"]')
-            like.click()
-            return True
-        except Exception:
-            pass
+        for xpath in like_xpaths:
+            try:
+                bt_like= driver2.find_elements(By.XPATH, xpath)
+                bt_like[0].click()
+                return True
+            except:
+                pass
         return False
-    kq = lk()
-    if kq:
+
+    # Thử like bài viết
+    # Thử like bài viết
+    if lk():
         return
     else:
         time.sleep(3)
 
+        # Nếu không tìm thấy nút "Thích", thử scroll xuống để tìm
         try:
-            #like video
-            for i in range(4):
+            for _ in range(4):
                 driver2.execute_script("window.scrollBy(0, 200);")
                 time.sleep(0.2)
-                kq = lk()
-                if kq :
+                if lk():
                     return
-                else:
-                    pass
-            return
-        except Exception as e:
+        except:
             pass
 def likereel():
     time.sleep(random.uniform(1.5,2.5))
@@ -581,42 +573,70 @@ def path_job():
     time.sleep(random.uniform(2.5,3.5))
     reacc = input('đổi sang acc bạn thực hiện nhiệm vụ và enter: ')
 
-def get_jobs_fb(us,lj_min,lj_max,wj_min,wj_max):
+
+
+def get_jobs_fb(us, lj_min, lj_max, wj_min, wj_max):
+    """
+    Chạy các công việc Facebook nhưng luôn kiểm tra Captcha.
+    """
     os.system('cls' if os.name == 'nt' else 'clear')
     print_tool_info()
     time.sleep(4)
+    
     job_thanh_cong = 0
     tien = 0
+
     for i in range(us):
         try:
+            # Kiểm tra Captcha trước khi làm nhiệm vụ
+            
+
             current_time = time.strftime("%Hh- %Mm - %Ss")
-            job_offer= driver.find_element(By.XPATH, '//i[@class="material-icons font-light font-18"]')
-            job_offer.click()
-            time.sleep(random.uniform(1.5,2.5))
-            job = driver.find_element(By.XPATH, '//span[@class="font-18 font-bold b200 block-text"]')
-            jobs_type = job.text
-            num_cash = driver.find_element(By.XPATH, '//span[@class="hold-prices"]')
-            num_cash = int(num_cash.text)
-            wh_offer = driver.find_element(By.XPATH,'//img[@src="/assets/images/icons-new/chrome.svg"]')
-            wh_offer.click()
             try:
-                
+                job_offer = driver.find_element(By.XPATH, '//i[@class="material-icons font-light font-18"]')
+                job_offer.click()
+            except Exception as e:
+                pass
+            time.sleep(random.uniform(1.5, 2.5))
+            try:
+                job = driver.find_element(By.XPATH, '//span[@class="font-18 font-bold b200 block-text"]')
+                jobs_type = job.text
+            except Exception as e:
+                pass
+            try:
+                num_cash = driver.find_element(By.XPATH, '//span[@class="hold-prices"]')
+                num_cash = int(num_cash.text)
+            except Exception as e:
+                pass
+            try:
+                wh_offer = driver.find_element(By.XPATH, '//img[@src="/assets/images/icons-new/chrome.svg"]')
+                wh_offer.click()
+            except Exception as e:
+                pass
+
+            # Kiểm tra Captcha trước khi chuyển tab
+
+            try:
                 driver.switch_to.window(driver.window_handles[1])
                 link = driver.current_url
                 driver.close()
                 driver2.get(link)
                 driver.switch_to.window(driver.window_handles[0])
-                time.sleep(random.uniform(1.5,2.5))
+
+                time.sleep(random.uniform(1.5, 2.5))
                 driver2.refresh()
-                def demgiay(wj_min,wj_max,jdl,current_time, job_thanh_cong,num_cash,tien):
-                    wj = random.randint(wj_min,wj_max)
-                    for i in range(wj,-1,-1):
-                        print(f"\r{Fore.GREEN}[{jdl}]{Style.RESET_ALL}|{Fore.YELLOW}🔥Quykedo🔥|{Fore.GREEN}Delay:{i}s{Style.RESET_ALL}|",end = '',flush=True)
+
+                # Kiểm tra Captcha trước khi thực hiện nhiệm vụ
+
+                def demgiay(wj_min, wj_max, jdl, current_time, job_thanh_cong, num_cash, tien):
+                    wj = random.randint(wj_min, wj_max)
+                    for i in range(wj, -1, -1):
+                        print(f"\r{Fore.GREEN}[{jdl}]{Style.RESET_ALL}|{Fore.YELLOW}🔥Quykedo🔥|{Fore.GREEN}Delay:{i}s{Style.RESET_ALL}|", end='', flush=True)
                         time.sleep(1)
+
                 if jobs_type == 'TĂNG LIKE CHO FANPAGE':
-                    
                     likepage()
-                    demgiay(wj_min,wj_max,i,current_time, job_thanh_cong,num_cash,tien)
+                    demgiay(wj_min, wj_max, i, current_time, job_thanh_cong, num_cash, tien)
                     time.sleep(1)
                 elif jobs_type == 'TĂNG LƯỢT THEO DÕI':
                     bao_loi()
@@ -625,73 +645,51 @@ def get_jobs_fb(us,lj_min,lj_max,wj_min,wj_max):
                 else:
                     link = driver.current_url
                     if 'reel' in link:
-                        like_reel()
-                        demgiay(wj_min,wj_max,i,current_time, job_thanh_cong,num_cash,tien)
+                        likereel()
+                        demgiay(wj_min, wj_max, i, current_time, job_thanh_cong, num_cash, tien)
                         time.sleep(1)
                     else:
                         like()
-                        demgiay(wj_min,wj_max,i,current_time, job_thanh_cong,num_cash,tien)
-                
-                
+                        demgiay(wj_min, wj_max, i, current_time, job_thanh_cong, num_cash, tien)
+
+                  # Kiểm tra Captcha trước khi hoàn thành job
+
                 time.sleep(2)
                 try:
-                    try:
-                        hoan_thanh = driver.find_element(By.XPATH, '//img[@src="/assets/images/icons-new/success.svg"]')
-                        hoan_thanh.click()
-                    except Exception as e:
-                        hoan_thanh = driver.find_element(By.XPATH, '//img[@src="../../assets/images/icons-new/success.svg"]')
-                        hoan_thanh.click()
-                    time.sleep(random.uniform(3.5,4.5))
-                    try:
-                        loi = driver.find_element(By.XPATH, '//h2[@id="swal2-title" and @class="swal2-title"]')
-                        loi_1 = loi.text
-                        if loi_1 == 'Lỗi':
-                            time.sleep(random.uniform(1.5,2.5))
-                            ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
-                            ok.click()
-                            bao_loi()
-                            print(f"\r                                                                                                                                                               ",end = '', flush = True)
-                            print(f'\r{Fore.GREEN}-->Đã Hủy Jobs [{i}]{Style.RESET_ALL}',end = '',flush = True)
-                        else:
-                            time.sleep(random.uniform(1.5,2.5))
-                            
-                            ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
-                            ok.click()
-                            tien += num_cash
-                            job_thanh_cong += 1
+                    hoan_thanh = driver.find_element(By.XPATH, '/html/body/div[1]/div/div[1]/div[2]/div[2]/div[2]/div/div/div[1]/img')
+                    hoan_thanh.click()
+                    time.sleep(random.uniform(4.5, 5.5))
+                    text1 = driver.find_element(By.ID, 'swal2-title')
+                    text1 = text1.text
+                    time.sleep(1)
+                    ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
+                    ok.click()
+                    if text1 == 'Lỗi':
+                        bao_loi()
+                    else:
 
-                            print(f"\r{Fore.GREEN}[{i}]{Style.RESET_ALL}|{Fore.YELLOW}🔥Quykedo🔥|{Fore.LIGHTGREEN_EX}Time:{current_time}{Style.RESET_ALL}|{Fore.GREEN}Delay:{0}s{Style.RESET_ALL}|{Fore.LIGHTYELLOW_EX}Job thành công:{job_thanh_cong}{Style.RESET_ALL}|{Fore.MAGENTA}{num_cash}đ{Style.RESET_ALL}|{Fore.CYAN}Tổng: {tien}đ{Style.RESET_ALL}| ",end = '',flush=True)
-                    except Exception as e:
-                        time.sleep(6)
-                        loi = driver.find_element(By.XPATH, '//h2[@id="swal2-title" and @class="swal2-title"]')
-                        loi_1 = loi.text
-                        if loi_1 == 'Lỗi':
-                            time.sleep(random.uniform(1.5,2.5))
-                            ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
-                            ok.click()
-                            bao_loi()
-                            print(f"\r                                                                                                                                                               ",end = '', flush = True)
-                            print(f'\r{Fore.GREEN}-->Đã Hủy Jobs [{i}]{Style.RESET_ALL}',end = '',flush = True)
-                        else:
-                            time.sleep(random.uniform(1.5,2.5))
-                            
-                            ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
-                            ok.click()
-                            tien += num_cash
-                            job_thanh_cong += 1
+                        tien += num_cash
+                        job_thanh_cong += 1
 
-                            print(f"\r{Fore.GREEN}[{i}]{Style.RESET_ALL}|{Fore.YELLOW}🔥Quykedo🔥|{Fore.LIGHTGREEN_EX}Time:{current_time}{Style.RESET_ALL}|{Fore.GREEN}Delay:{0}s{Style.RESET_ALL}|{Fore.LIGHTYELLOW_EX}Job thành công:{job_thanh_cong}{Style.RESET_ALL}|{Fore.MAGENTA}{num_cash}đ{Style.RESET_ALL}|{Fore.CYAN}Tổng: {tien}đ{Style.RESET_ALL}| ",end = '',flush=True)
-                except:
-                    print('ko thấy nút hoàn thành hiện')
+                    print(f"\r{Fore.GREEN}[{i}]{Style.RESET_ALL}|{Fore.YELLOW}🔥KEDO🔥|{Fore.LIGHTGREEN_EX}Time:{current_time}{Style.RESET_ALL}|{Fore.GREEN}Delay:{0}s{Style.RESET_ALL}|{Fore.LIGHTYELLOW_EX}Job thành công:{job_thanh_cong}{Style.RESET_ALL}|{Fore.MAGENTA}{num_cash}đ{Style.RESET_ALL}|{Fore.CYAN}Tổng: {tien}đ{Style.RESET_ALL}| ", end='', flush=True)
+
+                except Exception as e:
+                    print('Không thấy nút hoàn thành hiện!',e)
+            
             except Exception as e:
-                print('có lỗi')
+                print('Có lỗi xảy ra:', e)
+                
+            # Kiểm tra Captcha sau khi nhấn "Hoàn thành"
+            
             try:
                 ok = driver.find_element(By.XPATH, '//button[@type="button" and @class="swal2-confirm swal2-styled"]')
                 ok.click()
             except:
                 pass
+
             print()
-            time.sleep(random.uniform(lj_min,lj_max))
+            time.sleep(random.uniform(lj_min, lj_max))
+
         except Exception as e:
             bao_loi()
 
