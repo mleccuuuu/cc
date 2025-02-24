@@ -224,10 +224,9 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5] Tool Chuyển Quản Trị Pro
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.2] Tool Unlock follow Tiktok Selenium [PC]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.3] Tool reg Facebook Novery[PC+Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [5.4] Tool reg Facebook Full100% Cần Proxy Xịn[PC+Mobile]')
-
-
-
-
+print("\033[1;95m║  \033[1;32mTool Airdrop Auto\033[1;95m║")
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6] Tool  Midas noproxy[All thiết bị]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6.1] Tool Midas proxy[All thiết bị]')
 
 
 
@@ -271,6 +270,10 @@ elif chon == '1.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gltt.py').text)
 elif chon == '1.7':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/qk_fb.py').text)
+elif chon == '6':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas.py').text)
+elif chon == '6.1':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas_proxy.py').text)
 
 	
 
