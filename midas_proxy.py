@@ -5,7 +5,7 @@ from datetime import datetime
 from colorama import *
 import time, json, os, pytz
 import concurrent.futures
-url = "https://raw.githubusercontent.com/user/repository/branch/path/to/file.json"
+url = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/config.json"
 
 # Tải nội dung
 response = requests.get(url)
