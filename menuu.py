@@ -112,7 +112,7 @@ def banner():
     '''
 
     # Hiệu ứng nhấp nháy
-    for _ in range(5):
+    for _ in range(1):
         color = colors[_ % len(colors)]
         print(color + banner_text)
         time.sleep(0.3 )
