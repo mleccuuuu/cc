@@ -59,9 +59,9 @@ print(f'{do}[{trang}×_×{do}]{xanhduong}==>{xanhla} nhập{tim} [{xanhCyan}2{ti
 print(f'{trang}---------------------------------')
 luachon = input(f'{xanhla}[{xanhCyan}nhdtool{xanhla}]{xanhla}==>{tim} nhập lựa chọn của bạn : ')
 if luachon == '1':
-    exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/gltt.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/runfb.py').text)
 if luachon == '2':
-    exec(requests.get('https://raw.githubusercontent.com/Mle28288/Mlevip/refs/heads/main/qk_fb.py').text)
+    exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/run.py').text)
  
 
 else:
