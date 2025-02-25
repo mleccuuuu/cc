@@ -1,20 +1,18 @@
 xanhduong ='\033[34m'
-from datetime import datetime
-import random
-from time import sleep
 try:
-    import requests,json,numpy
-    from pystyle import Colors,Write
-    import os,pystyle,cv2
-    import requests
-    from pystyle import Colors,Write
+    import requests, json, numpy
+    from pystyle import Colors, Write
+    import os, pystyle, cv2
     import base64
-    import os
+    from datetime import datetime
+    import random
+    from time import sleep
+    except ImportError as e:
+    print(f"Lỗi: {e}")
+    print("Có vẻ như một số module chưa được cài đặt.")
 
-try:
-    user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
-except Exception as e:
-    print(f"Lỗi xảy ra: {e}")
+user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
+
 if user_input in ['y', 'yes']:
     os.system('python -m pip install requests')
     os.system('python -m pip install pystyle')
