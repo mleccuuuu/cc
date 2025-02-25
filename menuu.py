@@ -208,7 +208,7 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.7] Tool Auto Facebook 100% auto
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Auto Hustmedia  \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
-in_dong_khung_cau_vong('[TOOL]➩ Nhập  [hust_media] Tool Auto Facebook, Instagram')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập  [hust_media] Tool Auto Facebook, Instagram[All Thiết Bị]')
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Trao Đổi Sub   \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
@@ -278,7 +278,7 @@ elif chon == '6':
 elif chon == '6.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas_proxy.py').text)
 elif chon == 'hust_media':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas_proxy.py').text)
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/menu.py').text)
 
 	
 
