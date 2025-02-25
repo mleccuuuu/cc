@@ -11,6 +11,7 @@ except ImportError as e:
     print(f"Lỗi: {e}")
     print("Có vẻ như một số module chưa được cài đặt.")
 
+
 user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
 
 if user_input in ['y', 'yes']:
