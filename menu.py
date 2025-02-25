@@ -56,7 +56,7 @@ Write.Print('TOOL HUST MEDIA    \n',Colors.pink,interval=0.001)
 print(f'{do}[{trang}×_×{do}]{xanhduong}==>{xanhla} nhập{tim} [{xanhCyan}1{tim}] {xanhla}Tools auto facebook')
 print(f'{do}[{trang}×_×{do}]{xanhduong}==>{xanhla} nhập{tim} [{xanhCyan}2{tim}] {xanhla}Tools auto instagram{trang}')
 print(f'{trang}---------------------------------')
-luachon = input(f'{xanhla}[{xanhCyan}nhdtool{xanhla}]{xanhla}==>{tim} nhập lựa chọn của bạn : ')
+luachon = input(f'{xanhla}[{xanhCyan}KEDO-Tools{xanhla}]{xanhla}==>{tim} nhập lựa chọn của bạn : ')
 if luachon == '1':
     exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/runfb.py').text)
 if luachon == '2':
