@@ -7,7 +7,7 @@ try:
     from datetime import datetime
     import random
     from time import sleep
-    except ImportError as e:
+except ImportError as e:
     print(f"Lỗi: {e}")
     print("Có vẻ như một số module chưa được cài đặt.")
 
