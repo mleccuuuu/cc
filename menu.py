@@ -1,4 +1,3 @@
-
 xanhduong ='\033[34m'
 from datetime import datetime
 import random
