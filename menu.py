@@ -12,8 +12,10 @@ try:
     import base64
     import os
 
-user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
-
+try:
+    user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
+except Exception as e:
+    print(f"Lỗi xảy ra: {e}")
 if user_input in ['y', 'yes']:
     os.system('python -m pip install requests')
     os.system('python -m pip install pystyle')
