@@ -208,8 +208,9 @@ print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;3
 print("\033[1;95m║  \033[1;32mTool Trao Đổi Sub   \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2] Tool TDS TikTok ADB auto follow,tim...')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.1] Tool Auto Facebook[PC+Mobile](die)')
-in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.2] Tool Auto Instagram[PC+Mobile](die)')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.1] Tool Auto Facebook[PC]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.2] Tool Auto Facebook[PC+Mobile](die)')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [2.3] Tool Auto Instagram[PC+Mobile](die)')
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Tương Tác Chéo \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
@@ -248,7 +249,7 @@ elif chon == '1.4':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gllink.py').text)
 if chon == '3.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/ttcfbunti.py').text)
-elif chon == '2.1':
+elif chon == '2.2':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsfb.py').text)
 elif chon == '5.2':
         exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/unfollow.py').text)
@@ -260,7 +261,7 @@ elif chon == '1.5':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/glx.py').text)
 elif chon == '1.6':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/threads.py').text)
-elif chon == '2.2':
+elif chon == '2.3':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/igtds.py').text)
 elif chon == '1.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/gltt.py').text)
@@ -272,6 +273,8 @@ elif chon == '6.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas_proxy.py').text)
 elif chon == '7':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/menuhust.py').text)
+elif chon == '2.1':
+	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/tdsunti.py').text)
 
 
 
