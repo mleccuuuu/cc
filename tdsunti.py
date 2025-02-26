@@ -19,6 +19,27 @@ import platform
 import os
 import shutil
 from colorama import Fore, Style, init
+import requests, base64, uuid, os, json
+from random import randint
+from datetime import datetime
+import re
+import time 
+from time import sleep
+import random
+import sys
+import urllib.parse
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from pathlib import Path
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.support import expected_conditions as EC
+import platform
+import os
+import shutil
+from colorama import Fore, Style, init
 init(autoreset=True)
 RED = Fore.RED
 YELLOW = Fore.YELLOW
@@ -302,7 +323,6 @@ def lay_data():
     for profile in profiles:
         
         info_file_path = os.path.join(base_profile_path, profile, 'acc.txt')
-        print(info_file_path)
         if os.path.exists(info_file_path):
             with open(info_file_path, 'r') as info_file:
                 profiles , passwords = info_file.read().split()
@@ -493,7 +513,7 @@ def clean(folder_path):
             print(f"Thư mục không tồn tại: {folder_path}")
     except Exception as e:
         print(f"Không thể xóa {folder_path}: {e}")
-    profiles, passwords = lay_data()
+    # profiles, passwords = lay_data()
 def clean_all(profiles):
     
     for profile in profiles:
@@ -672,7 +692,7 @@ def tds(profile=None):
                     listlike = getjob(tk, 'LIKE')
                     like1 = listlike.text
                     like2 = listlike.json()
-                    if like1 == []:
+                    if (like1 == [] and like2 == []) or (len(str(like1)) == 0):
                         print(f'{RED}Hết Nhiệm Vụ{GREEN}-sau 10s sẽ load lại', end = '\r');sleep(10); print('                                                     ', end = '\r')
                     elif 'error' in like2:
                         print(f'{RED}ĐANG{RESET} Lấy Nhiệm Vụ                          ', end = '\r');sleep(2); print('                                                        ', end = '\r')
@@ -680,8 +700,11 @@ def tds(profile=None):
                     else:
                         print(f'{GREEN}Tìm Thấy{RESET} {len(like2['data'])} Nhiệm Vụ                      ', end = '\r')
                         for x in like2['data']:
-                            uid = x['id'].split('_')[1]
-                            code_job = x['code']
+                            try:
+                                uid = x['id'].split('_')[1]
+                                code_job = x['code']
+                            except Exception as e:
+                                uid = x['id']
                             # like = _Like(ck, uid, "LIKE", _info[0], _info[1])
                             # print(uid)
                             headers = {
@@ -723,7 +746,7 @@ def tds(profile=None):
                                 except:
                                     print(url_nhan_xu['error'])
                                     continue
-                                countdown(5)
+                                countdown(10)
                                     
             elif chonjob == "2":
                 while True:
@@ -828,7 +851,9 @@ def option_menu(profiles):
             choice = input(f'{GREEN}Nhập tài khoản muốn xóa,(X để quay lại):{RESET}').strip().upper()
             if choice.isdigit() and 0 <= int(choice) < len(asdfads):
                 selected_profile = asdfads[int(choice)]
+                base_profile_path = os.path.dirname(os.path.abspath(__file__))+'\profiles'
                 selected_profile_path = os.path.join(base_profile_path, selected_profile)
+                print(selected_profile_path)
                 clean(selected_profile_path)
                 print(f"Đã xóa dữ liệu: {selected_profile}")
             elif choice == "X":
