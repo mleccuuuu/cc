@@ -1,7 +1,6 @@
 from pystyle import Write,Colorate,Colors
 import os,json,random,time
 import numpy as np
-import cv2
 from api import hustmedia , instagram
 do = '\033[31m'
 xanhla ='\033[32m' 
