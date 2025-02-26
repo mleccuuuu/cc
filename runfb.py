@@ -114,13 +114,13 @@ for gh in listcookie_check:
         print(f'    | {xanhduong}{name} {tim}[{trang}satus {xanhCyan} : {xanhla}live{tim}]')
     elif check_live == 'die':
         print(f'    | {xanhduong}{name} {tim}[{trang}satus {xanhCyan} : {do}die{tim}]')
-
+if 'listcookie.txt' in listfile:
 # Kiểm tra xem có sử dụng lại cookie hay không
-textinput = Colorate.Horizontal(Colors.green_to_blue, 'Do you want to use cookie fb again (y/n) ?: ')
-luachon = input(textinput)
-if luachon.lower() == 'n':
-    with open(fileCookie, "w") as file:
-        pass  # Xóa nội dung file cookie (nếu có)
+    textinput = Colorate.Horizontal(Colors.green_to_blue, 'Do you want to use cookie fb again (y/n) ?: ')
+    luachon = input(textinput)
+    if luachon.lower() == 'n':
+        with open(fileCookie, "w") as file:
+            pass  # Xóa nội dung file cookie (nếu có)
         while True:
             cookie = input(f'{trang}[{i}] {tim}nhập cookie của bạn (out để thoạt nhập cookie) : ')
             if cookie == 'out':
