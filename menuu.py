@@ -44,7 +44,7 @@ original_get = requests.get  # Lưu hàm gốc
 
 def protected_get(*args, **kwargs):
     if requests.get != original_get:
-        print("⚠️ Phát hiện thay đổi trong requests! Chặn lại.")
+        print("⚠️ Lỗi.")
         exit()
     return original_get(*args, **kwargs)
 
