@@ -20,13 +20,13 @@ except ImportError as e:
 user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
 
 if user_input in ['y', 'yes']:
-    os.system('python -m pip install requests')
-    os.system('python -m pip install pystyle')
-    os.system('python -m pip install pyfiglet')
-    os.system('python -m pip install numpy')
-    os.system('python -m pip install dnspython')
-    os.system('python -m pip install tabulate')
-    os.system('python -m pip install opencv-python-headless')
+    os.system('python3 -m pip3 install requests')
+    os.system('python3 -m pip3 install pystyle')
+    os.system('python3 -m pip3 install pyfiglet')
+    os.system('python3 -m pip3 install numpy')
+    os.system('python3 -m pip3 install dnspython')
+    os.system('python3 -m pip3 install tabulate')
+    os.system('python3 -m pip3 install opencv-python-headless')
     print("Cài đặt hoàn tất.")
 GITHUB_URL = "https://raw.githubusercontent.com/user/repository/branch/api.py"
 # Đường dẫn lưu file
@@ -34,7 +34,7 @@ FILE_PATH = "api.py"
 
 # Kiểm tra xem file đã tồn tại chưa
 if not os.path.exists(FILE_PATH):
-    print("File api.py chưa tồn tại. Đang tải xuống...")
+    pass#print("File api.py chưa tồn tại. Đang tải xuống...")
     
     try:
         response = requests.get(GITHUB_URL)
@@ -44,12 +44,12 @@ if not os.path.exists(FILE_PATH):
         with open(FILE_PATH, "wb") as file:
             file.write(response.content)
         
-        print("Tải xuống thành công!")
+        pass#print("Tải xuống thành công!")
 
     except requests.RequestException as e:
-        print(f"Lỗi khi tải file: {e}")
+        pass#print(f"Lỗi khi tải file: {e}")
 else:
-    print("File api.py đã tồn tại.")
+    pass#print("File api.py đã tồn tại.")
     print("Đang vào tool...")
     
 if 'nt' in os.name:
