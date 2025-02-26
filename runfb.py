@@ -89,27 +89,38 @@ elif 'apikey.txt' not in listfile:
                 except:
                     print(f'{do}apikey không đúng')  
                     continue
+import os
+
 fileCookie = "listcookie.txt"
+
+# Tạo file nếu chưa tồn tại
+if not os.path.exists(fileCookie):
+    with open(fileCookie, "w") as file:
+        pass  # Tạo file rỗng
+
 i = 1
-with open('apikey.txt','r') as file:
+with open('apikey.txt', 'r') as file:
     apikey = file.read()
-# check live cookie fb
-with open('listcookie.txt','r') as cookie:
-    listcookie_check = cookie.readlines()
+
+# Đọc danh sách cookie (nếu có)
+with open(fileCookie, 'r') as cookie_file:
+    listcookie_check = cookie_file.readlines()
+
 for gh in listcookie_check:
-    cookie = gh.split(':')[1].split('\n')[0]
+    cookie = gh.split(':')[1].strip()
     name = gh.split(':')[0]
     check_live = facebook(cookie).check_live_fb()
     if check_live == 'live':
         print(f'    | {xanhduong}{name} {tim}[{trang}satus {xanhCyan} : {xanhla}live{tim}]')
     elif check_live == 'die':
         print(f'    | {xanhduong}{name} {tim}[{trang}satus {xanhCyan} : {do}die{tim}]')
-if 'listcookie.txt' in listfile:
-    textinput = Colorate.Horizontal(Colors.green_to_blue,'Do you want to use cookie fb again (y/n) ?: ')
-    luachon = input(textinput)
-    if luachon == 'n':
-        with open(fileCookie, "w") as file:
-            listcookie = file.write('')
+
+# Kiểm tra xem có sử dụng lại cookie hay không
+textinput = Colorate.Horizontal(Colors.green_to_blue, 'Do you want to use cookie fb again (y/n) ?: ')
+luachon = input(textinput)
+if luachon.lower() == 'n':
+    with open(fileCookie, "w") as file:
+        pass  # Xóa nội dung file cookie (nếu có)
         while True:
             cookie = input(f'{trang}[{i}] {tim}nhập cookie của bạn (out để thoạt nhập cookie) : ')
             if cookie == 'out':
