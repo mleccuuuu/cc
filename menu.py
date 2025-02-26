@@ -7,6 +7,11 @@ try:
     from datetime import datetime
     import random
     from time import sleep
+    import os
+    import requests
+
+# URL của file api.py trên GitHub
+
 except ImportError as e:
     print(f"Lỗi: {e}")
     print("Có vẻ như một số module chưa được cài đặt.")
@@ -23,8 +28,29 @@ if user_input in ['y', 'yes']:
     os.system('python -m pip install tabulate')
     os.system('python -m pip install opencv-python-headless')
     print("Cài đặt hoàn tất.")
+GITHUB_URL = "https://raw.githubusercontent.com/user/repository/branch/api.py"
+# Đường dẫn lưu file
+FILE_PATH = "api.py"
 
-print("Đang vào tool...")
+# Kiểm tra xem file đã tồn tại chưa
+if not os.path.exists(FILE_PATH):
+    print("File api.py chưa tồn tại. Đang tải xuống...")
+    
+    try:
+        response = requests.get(GITHUB_URL)
+        response.raise_for_status()  # Kiểm tra lỗi HTTP
+
+        # Lưu file vào thư mục hiện tại
+        with open(FILE_PATH, "wb") as file:
+            file.write(response.content)
+        
+        print("Tải xuống thành công!")
+
+    except requests.RequestException as e:
+        print(f"Lỗi khi tải file: {e}")
+else:
+    print("File api.py đã tồn tại.")
+    print("Đang vào tool...")
     
 if 'nt' in os.name:
     os.system('cls')
