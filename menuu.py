@@ -233,8 +233,6 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6] Tool  Midas noproxy[All thiế
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [6.1] Tool Midas proxy[All thiết bị]')
 
 
-
-
 chon = str(input('\033[91mTOOL\033[93m➩ \033[96mNhập Số : \033[92m'))
 #golike
 if chon == '1':
