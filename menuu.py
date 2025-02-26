@@ -39,7 +39,12 @@ HĐ_tool = trang + " " + trang + "[" + do + "+_+" + trang + "] " + trang + "=> "
 mquang = trang + " " + trang + "[" + do + "÷_+" + trang + "] " + trang + "=> "
 thanh = trang + "-------------------------------------------------------------------------"
 import os
+import requests
+import sys
 
+if "requests" not in sys.modules or not hasattr(requests, "get"):
+    print("⚠️ Cảnh báo: requests đã bị thay thế!")
+    exit()
 original_get = requests.get  # Lưu hàm gốc
 
 def protected_get(*args, **kwargs):
