@@ -28,7 +28,7 @@ if user_input in ['y', 'yes']:
     os.system('python3 -m pip3 install tabulate')
     os.system('python3 -m pip3 install opencv-python-headless')
     print("Cài đặt hoàn tất.")
-GITHUB_URL = "https://raw.githubusercontent.com/user/repository/branch/api.py"
+GITHUB_URL = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/api.py"
 # Đường dẫn lưu file
 FILE_PATH = "api.py"
 
