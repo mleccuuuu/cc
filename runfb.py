@@ -3,6 +3,34 @@ from api import hustmedia,facebook
 from pystyle import Colors,Colorate,Write
 from pyfiglet import figlet_format
 import requests,os,time,random
+import dns.resolver
+import socket
+from tabulate import tabulate
+from pystyle import Write
+from tabulate import tabulate
+from pystyle import Colorate, Colors
+from datetime import datetime
+import sys
+from random_user_agent.user_agent import UserAgent
+from random_user_agent.params import SoftwareName, OperatingSystem
+
+resolver = dns.resolver.Resolver(configure=False)
+resolver.nameservers = ['8.8.8.8']
+org_socket = socket.getaddrinfo
+
+def google_socket(host, port, family=0, type=0, proto=0, flags=0):
+    try:
+        info = resolver.resolve(host)
+        ip_address = info[0].to_text()
+        return org_socket(ip_address, port, family, type, proto, flags)
+    except:
+        return org_socket(host, port, family, type, proto, flags)
+
+socket.getaddrinfo = google_socket
+software_names = [SoftwareName.CHROME.value]
+operating_systems = [OperatingSystem.WINDOWS.value, OperatingSystem.LINUX.value]   
+user_agent_rotator = UserAgent(software_names=software_names, operating_systems=operating_systems, limit=100)
+
 if 'nt' in os.name:
     os.system('cls')
 else:
