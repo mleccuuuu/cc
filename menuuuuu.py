@@ -19,13 +19,13 @@ except ImportError as e:
 user_input = input("Bạn lần đầu chạy thì hãy nhập y lần sau cứ nhập n nhé, chỉ cần cài lần đầu (y/n): ").strip().lower()
 
 if user_input in ['y', 'yes']:
-    os.system('python3 -m pip3 install requests')
-    os.system('python3 -m pip3 install pystyle')
-    os.system('python3 -m pip3 install pyfiglet')
-    os.system('python3 -m pip3 install numpy')
-    os.system('python3 -m pip3 install dnspython')
-    os.system('python3 -m pip3 install tabulate')
-    os.system('python3 -m pip3 install opencv-python-headless')
+    os.system('pip3 install requests')
+    os.system('pip3 install pystyle')
+    os.system('pip3 install pyfiglet')
+    os.system('pip3 install numpy')
+    os.system('pip3 install dnspython')
+    os.system('install tabulate')
+    os.system('pip3 install opencv-python-headless')
     print("Cài đặt hoàn tất.")
 GITHUB_URL = "https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/api.py"
 # Đường dẫn lưu file
