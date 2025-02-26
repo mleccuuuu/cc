@@ -277,10 +277,6 @@ elif chon == '6':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas.py').text)
 elif chon == '6.1':
 	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/midas_proxy.py').text)
-elif chon == '7':
-	exec(requests.get('https://raw.githubusercontent.com/mleccuuuu/cc/refs/heads/main/menu.py').text)
-
-	
 
 
 
