@@ -43,17 +43,8 @@ import requests
 import sys
 
 if "requests" not in sys.modules or not hasattr(requests, "get"):
-    print("⚠️ Cảnh báo: requests đã bị thay thế!")
+    print("⚠️ Cảnh báo: requests đã bị thay thế! Cút")
     exit()
-original_get = requests.get  # Lưu hàm gốc
-
-def protected_get(*args, **kwargs):
-    if requests.get != original_get:
-        print("⚠️ Lỗi.")
-        exit()
-    return original_get(*args, **kwargs)
-
-requests.get = protected_get  # Gán lại hàm get để bảo vệ
 
 # Test
 def clear_screen():
