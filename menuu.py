@@ -41,7 +41,6 @@ thanh = trang + "---------------------------------------------------------------
 import os
 import requests
 import sys
-
 if "requests" not in sys.modules or not hasattr(requests, "get"):
     print("⚠️ Cảnh báo: requests đã bị thay thế! Cút")
     exit()
