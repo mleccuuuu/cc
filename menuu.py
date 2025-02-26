@@ -39,18 +39,19 @@ HĐ_tool = trang + " " + trang + "[" + do + "+_+" + trang + "] " + trang + "=> "
 mquang = trang + " " + trang + "[" + do + "÷_+" + trang + "] " + trang + "=> "
 thanh = trang + "-------------------------------------------------------------------------"
 import os
-def xoss(z):
-    for e in z + '\n':
-        sys.stdout.write(e)
-        sys.stdout.flush()
-        time.sleep(0.02)
-xoss('\n\033[1;32m[●] Đang Vào Tool Đợi Xíu ........');time.sleep(0.1)
-xoss('\n\033[1;36m[●] kiểm tra sever.......')
-xoss('\n\033[1;33m[●] kiểm tra bản update ')
-xoss('\n\033[1;34m[●] thành công đang tiến hành vào tool')
-def Update():
-    exit('\033[1;31m[●] Đang Tiến Hành Vào Tool...... ')
-    
+import requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requests
+
+original_get = requests.get  # Lưu hàm gốc
+
+def protected_get(*args, **kwargs):
+    if requests.get != original_get:
+        print("⚠️ Phát hiện thay đổi trong requests! Chặn lại.")
+        exit()
+    return original_get(*args, **kwargs)
+
+requests.get = protected_get  # Gán lại hàm get để bảo vệ
+
+# Test
 def clear_screen():
     os.system('cls' if os.name == 'nt' else 'clear')
 
