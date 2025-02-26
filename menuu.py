@@ -39,7 +39,6 @@ HĐ_tool = trang + " " + trang + "[" + do + "+_+" + trang + "] " + trang + "=> "
 mquang = trang + " " + trang + "[" + do + "÷_+" + trang + "] " + trang + "=> "
 thanh = trang + "-------------------------------------------------------------------------"
 import os
-import requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requestsimport requests
 
 original_get = requests.get  # Lưu hàm gốc
 
