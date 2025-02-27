@@ -200,6 +200,7 @@ in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.4] Tool Auto LinkedIn[PC cần 
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.5] Tool Auto X[PC cần giả lập-Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.6] Tool Auto Threads[PC cần giả lập-Mobile]')
 in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.7] Tool Auto Facebook 100% auto Giải Captcha New Update Thử Nghiệm[PC]')
+in_dong_khung_cau_vong('[TOOL]➩ Nhập Số [1.2] Tool Auto Youtube[Giả lập-Mobile]')
 print("\033[1;95m╔\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╗")
 print("\033[1;95m║  \033[1;32mTool Auto Hustmedia  \033[1;95m║")
 print("\033[1;95m╚\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m═\033[1;36m═\033[1;95m╝")
