@@ -150,7 +150,12 @@ def _Infofb(cookie):
         return False
     
 def _Like(cookie, uid, type, fb1, idfb):
-    headers = {
+    try:
+        if not uid:
+            print("Lỗi: uid không hợp lệ, bỏ qua nhiệm vụ này")
+            return False  # Bỏ qua nhiệm vụ nếu UID không hợp lệ
+        
+        headers = {
         "accept": "*/*", 
         "accept-language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7", 
         "content-type": "application/x-www-form-urlencoded", 
@@ -168,7 +173,7 @@ def _Like(cookie, uid, type, fb1, idfb):
         "x-fb-friendly-name": "CometUFIFeedbackReactMutation", 
         "x-fb-lsd": "7_RkODA0fo-6ShZlbFpHEW"
     }
-    _reac = {
+        _reac = {
         "LIKE": "1635855486666999",
         "LOVE": "1678524932434102",
         "CARE": "613557422527858",
@@ -177,8 +182,8 @@ def _Like(cookie, uid, type, fb1, idfb):
         "SAD": "908563459236466",
         "ANGRY": "444813342392137"
     }
-    _id_reac = _reac.get(type)
-    _data = {
+        _id_reac = _reac.get(type)
+        _data = {
         'av': idfb,
         '__usid': r'6-Tsfgotwhb2nus:Psfgosvgerpwk:0-Asfgotw11gc1if-RV=6:F=',
         '__aaid': '0',
@@ -205,16 +210,25 @@ def _Like(cookie, uid, type, fb1, idfb):
         'server_timestamps': 'true',
         'doc_id': '7047198228715224',
     }
-    cookies = {
+        cookies = {
         "cookie": cookie
     }
-    _get = requests.post("https://www.facebook.com/api/graphql/",headers=headers, cookies=cookies, params=_data)
-    if '{"data":{"feedback_react":{"feedback":{"id":' in _get.text:
-        return True
-    else:
-        return False
+        _get = requests.post("https://www.facebook.com/api/graphql/",headers=headers, cookies=cookies, params=_data)
+        
+       
+    
+        if '{"data":{"feedback_react":{"feedback":{"id":' in _get.text:
+            return True
+        else:
+            return False
+    except Exception as e:
+            print(f"Lỗi trong _Like: {e}")
+            return False
     
 def _React_Cmt(cookie, idfb, fb1, uid, type):
+    if not uid:
+        print("Lỗi: uid không hợp lệ")
+        return False
     _reac = {
         "LIKE": "1635855486666999",
         "LOVE": "1678524932434102",
@@ -285,7 +299,11 @@ def _React_Cmt(cookie, idfb, fb1, uid, type):
         return False
     
 def _Follow(cookie, idfb, fb1, uid):
-    headers = {
+    try:
+        if not uid:
+            print("Lỗi: uid không hợp lệ")
+            return False  # Bỏ qua nếu UID không hợp lệ 
+        headers = {
         "accept": "*/*", 
         "accept-language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7", 
         "content-type": "application/x-www-form-urlencoded", 
@@ -302,7 +320,7 @@ def _Follow(cookie, idfb, fb1, uid):
         "x-fb-friendly-name": "CometUserFollowMutation", 
         "x-fb-lsd": "7_RkODA0fo-6ShZlbFpHEW"
     }
-    _data = {
+        _data = {
         'av': idfb,
         '__aaid': '0',
         '__user': idfb,
@@ -329,17 +347,24 @@ def _Follow(cookie, idfb, fb1, uid):
         'server_timestamps': 'true',
         'doc_id': '25581663504782089',
     }
-    cookies = {
+        cookies = {
         "cookie": cookie
     }
-    _Post = requests.post("https://www.facebook.com/api/graphql/", headers=headers, cookies=cookies, params=_data)
-    if '"subscribe_status":"IS_SUBSCRIBED"' in _Post.text:
-        return True
-    else:
+        _Post = requests.post("https://www.facebook.com/api/graphql/", headers=headers, cookies=cookies, params=_data)
+        if '"subscribe_status":"IS_SUBSCRIBED"' in _Post.text:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(f"Lỗi trong _Follow: {e}")
         return False
     
-def CMT(cookie, id, idfb, fb1, msg:str):
-    headers = {
+def _CMT(cookie, id, idfb, fb1, msg: str):
+    try:
+        if not id:
+            print("Lỗi: ID bài viết không hợp lệ, bỏ qua nhiệm vụ bình luận")
+            return False
+        headers = {
         "accept": "*/*",
         "accept-language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
         "content-type": "application/x-www-form-urlencoded", 
@@ -357,7 +382,7 @@ def CMT(cookie, id, idfb, fb1, msg:str):
         "x-fb-friendly-name": "CometUFIFeedbackReactMutation", 
         "x-fb-lsd": "7_RkODA0fo-6ShZlbFpHEW"
     }
-    _data = {
+        _data = {
         'av': idfb,
         '__aaid': '0',
         '__user': idfb,
@@ -383,24 +408,36 @@ def CMT(cookie, id, idfb, fb1, msg:str):
         'server_timestamps': 'true',
         'doc_id': '7994085080671282',
     }
-    cookies = {
+        cookies = {
         "cookie": cookie
     }
-    try:
+    
         _get = requests.post("https://www.facebook.com/api/graphql/",headers=headers, cookies=cookies, params=_data)
-        if '"errors"' not in _get.text:
-            return True
+        if '"errors"' not in _post.text:
+           return True  # Bình luận thành công
         else:
-            return False
-    except:
+           return False  # Bình luận thất bại
+    except Exception as e:
+        print(f"Lỗi trong _CMT: {e}")
         return False
     
 def _Page(cookie, idfb, fb1, id):
-    if '_' in id:
-        uid = id.split('_')[1]
-    else:
-        uid = id
-    headers = {
+    try:
+        uid = None  # Giá trị mặc định
+
+        if id and '_' in id:
+            uid = id.split('_')[1]
+        elif id:
+            uid = id
+
+        if uid is None:
+            print("Lỗi: UID không hợp lệ, bỏ qua nhiệm vụ này")
+            return False  # Bỏ qua nếu UID không hợp lệ
+
+        # (Tiếp tục code thực hiện PAGE...)
+        
+        
+        headers = {
         "accept": "*/*", 
         "accept-language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7", 
         "content-type": "application/x-www-form-urlencoded", 
@@ -417,7 +454,7 @@ def _Page(cookie, idfb, fb1, id):
         "x-fb-friendly-name": "CometUserFollowMutation", 
         "x-fb-lsd": "7_RkODA0fo-6ShZlbFpHEW"
     }
-    _data = {
+        _data = {
         'av': idfb,
         '__aaid': '0',
         '__user': idfb,
@@ -444,17 +481,23 @@ def _Page(cookie, idfb, fb1, id):
         'server_timestamps': 'true',
         'doc_id': '6716077648448761',
     }
-    cookies = {
+        cookies = {
         "cookie": cookie
     }
-    _Post = requests.post("https://www.facebook.com/api/graphql/", headers=headers, cookies=cookies, params=_data)
-    if '"subscribe_status":"IS_SUBSCRIBED"' in _Post.text:
-        return True
-    else:
-        return False
+        _Post = requests.post("https://www.facebook.com/api/graphql/", headers=headers, cookies=cookies, params=_data)
+        if '"subscribe_status":"IS_SUBSCRIBED"' in _Post.text:
+            return True
+    except Exception as e:
+        print(f"Lỗi trong _Page: {e}")
+        return False  # Không dừng chương trình
     
 def _Share(cookie, idfb, fb1, uid):
-    headers = {
+    try:
+        if not id:
+            print("Lỗi: ID bài viết không hợp lệ, bỏ qua nhiệm vụ share")
+            return False
+
+        headers = {
         "accept": "*/*", 
         "accept-language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7", 
         "content-type": "application/x-www-form-urlencoded", 
@@ -472,7 +515,7 @@ def _Share(cookie, idfb, fb1, uid):
         "x-fb-friendly-name": "CometUFIFeedbackReactMutation", 
         "x-fb-lsd": "5dCcoMgOrU5CgUwl77gn-C"
     }
-    _data = {
+        _data = {
         'av': idfb,
         '__usid': r'6-Tsftw3x1vqj8dz:Psftw2g2c595x:0-Asftw3x1etit7l-RV=6:F=',
         '__aaid': '0',
@@ -500,13 +543,16 @@ def _Share(cookie, idfb, fb1, uid):
         'server_timestamps': 'true',
         'doc_id': '8167261726632010'
     }
-    cookies = {
+        cookies = {
         "cookie": cookie
     }
-    _post = requests.post("https://www.facebook.com/api/graphql/",headers=headers, cookies=cookies, params=_data)
-    if '"errors"' not in _post.text:
-        return True
-    else:
+        _post = requests.post("https://www.facebook.com/api/graphql/",headers=headers, cookies=cookies, params=_data)
+        if '"errors"' not in _post.text:
+            return True
+        else:
+            return False
+    except Exception as e:
+        print(f"Lỗi trong _Share: {e}")
         return False
     
 def _Bypass(cookie, idfb, fb1):
