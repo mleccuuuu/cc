@@ -52,7 +52,6 @@ from time import sleep
 import os
 import platform
 from pathlib import Path
-
 # Xác định đường dẫn của thư mục Profile
 if os.name == 'nt':  # Windows
     base_profile_path = Path(os.environ['USERPROFILE']) / "Profile"
