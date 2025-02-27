@@ -49,16 +49,28 @@ RESET = Style.RESET_ALL
 MAGENTA = Fore.MAGENTA
 current_dir = Path(__file__).parent
 from time import sleep
-if os.name == 'nt':  # Check if the operating system is Windows
+import os
+import platform
+from pathlib import Path
+
+# Xác định đường dẫn của thư mục Profile
+if os.name == 'nt':  # Windows
     base_profile_path = Path(os.environ['USERPROFILE']) / "Profile"
-elif os.name == 'posix' and platform.system() == 'Darwin':  # Check if the operating system is macOS
+elif os.name == 'posix' and platform.system() == 'Darwin':  # macOS
     base_profile_path = Path.home() / "Profile"
-else:
-    base_profile_path = current_dir / "Profile"
+else:  # Linux hoặc hệ thống khác
+    base_profile_path = Path.cwd() / "Profile"  # Thay vì `current_dir`, dùng `Path.cwd()`
 
-os.makedirs(base_profile_path, exist_ok=True)
+# Tạo thư mục nếu chưa tồn tại
+try:
+    base_profile_path.mkdir(parents=True, exist_ok=True)
+    print(f"Đã tạo thư mục: {base_profile_path}")
+except Exception as e:
+    print(f"Lỗi khi tạo thư mục: {e}")
 
+# Lấy tên hệ điều hành
 os_name = platform.system()
+print(f"Hệ điều hành: {os_name}")
 def slow_typing_with_actionchains(driver, element, text):
     delay = random.uniform(0.2, 0.5)
     for char in text:
